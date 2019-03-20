@@ -1,0 +1,752 @@
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/node_modules/primeicons/primeicons.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/node_modules/primeng/resources/themes/nova-light/theme.css"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/node_modules/primeng/resources/primeng.min.css"
+/>
+
+<div class="container border ui-fluid" style="background: #ebebeb">
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-12">
+      <h5>No image data</h5>
+    </div>
+    <div class="col-lg-9 col-md-9 col-12">
+      <div class="row border">
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <p-checkbox
+            name="dangkikhamonline"
+            [(ngModel)]="rigisterOnline"
+            class="mr-1"
+          ></p-checkbox>
+          <span>Đăng ký khám online</span>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span class="mr-3"><b>Số ĐK online</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-6">
+              <span><b>Ngày đăng kí *</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-6">
+              <p-calendar [(ngModel)]="value"></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span class="mr-3"><b>Mã công dân</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span class="mr-3"><b>Tên bệnh nhân</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span class="mr-3"><b>Mã lần khám</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span class="mr-3"><b>Ngày sinh</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <div class="ui-g">
+                <div class="ui-g-3 ui-md-4 col-4">
+                  <p-chips placeholder="dd" [(ngModel)]="text"></p-chips>
+                </div>
+                <div class="ui-g-3 ui-md-4 col-4">
+                  <p-chips placeholder="mm" [(ngModel)]="text"></p-chips>
+                </div>
+                <div class="ui-g-6 ui-md-4 col-4">
+                  <p-chips placeholder="yyyy" [(ngModel)]="text"></p-chips>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-6 ui-md-6">
+              <div class="ui-g-3 ui-md-3">
+                <span><b>Tuổi</b></span>
+              </div>
+              <div class="ui-g-9 ui-md-9">
+                <p-autoComplete
+                  [(ngModel)]="text"
+                  [suggestions]="results"
+                  (completeMethod)="search($event)"
+                ></p-autoComplete>
+              </div>
+            </div>
+            <div class="ui-g-6 ui-md-6">
+              <div class="ui-g-3 ui-md-3">
+                <span><b>Giới tính</b></span>
+              </div>
+              <div class="ui-g-9 ui-md-9">
+                <p-dropdown
+                  [options]="cities1"
+                  [(ngModel)]="selectedCity1"
+                ></p-dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-2 col-md-2 col-2 p-1">
+          <span><b>Địa chỉ</b></span>
+        </div>
+        <div class="col-lg-10 col-md-10 col-10 p-1">
+          <p-chips [(ngModel)]="text"></p-chips>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-6 col-md-6 col-12  p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-6">
+              <span><b>Đối tượng khám</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-6">
+              <p-dropdown
+                [options]="cities1"
+                [(ngModel)]="selectedCity1"
+              ></p-dropdown>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span class="mr-3"><b>Loại bệnh án</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="ui-g p-1">
+      <h6 class="text-success">
+        <b><i>Đối tượng bảo hiểm y tế</i></b>
+      </h6>
+    </div>
+    <div class="col-lg-12 col-md-12 col-12">
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Số thẻ</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4 ">
+              <span><b>Hạn từ</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-calendar [(ngModel)]="value"></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Hạn đến</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-calendar [(ngModel)]="value"></p-calendar>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-8 col-md-8 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-2 ui-md-2 col-2">
+              <span><b>Nơi ĐK KCB</b></span>
+            </div>
+            <div class="ui-g-10 ui-md-10 col-10">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-5 ui-md-5 col-5">
+              <span><b>Mã đăng ký KCB</b></span>
+            </div>
+            <div class="ui-g-7 ui-md-7 col-7">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Mã khu vực</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4 ">
+              <span><b>Ngày hạn mức</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-calendar [(ngModel)]="value"></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Miễn cùng chi trả</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Đúng|Trái tuyến</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4 ">
+              <span><b>Mức hưởng</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Nội ngoại tỉnh</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="ui-g p-1">
+      <i class="pi pi-chevron-down"> </i>
+      <h6 class="text-success">
+        <b><i>Thông tin nơi giới thiệu</i></b>
+      </h6>
+    </div>
+    <div class="col-lg-12 col-md-12 col-12">
+      <div class="row border">
+        <div class="col-lg-12 col-md-12 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-2 ui-md-2 col-2">
+              <span><b>Nơi giới thiệu</b></span>
+            </div>
+            <div class="ui-g-10 ui-md-10 col-10">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-8 col-md-8 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-2 ui-md-2 col-2">
+              <span><b>Chẩn đoán</b></span>
+            </div>
+            <div class="ui-g-10 ui-md-10 col-10">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-5 ui-md-5 col-5">
+              <span><b>ICD</b></span>
+            </div>
+            <div class="ui-g-7 ui-md-7 col-7">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="ui-g p-1">
+      <i class="pi pi-chevron-down"> </i>
+      <h6 class="text-success">
+        <b><i>Thông tin khám</i></b>
+      </h6>
+    </div>
+    <div class="col-lg-12 col-md-12 col-12">
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span>Số thứ tự</span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8 bg-success"></div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-8">
+          <div class="row border">
+            <div class="col-lg-3 col-md-3 col-3">
+              <span><b>Triệu chứng</b></span>
+            </div>
+            <div class="col-lg-9 col-md-9 col-9">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+          <div class="row border">
+            <div class="col-lg-6 col-md-6 col-12">
+              <div class="ui-g">
+                <div class="ui-g-4 ui-md-4 col-4">
+                  <span><b>Khoa khám|ĐT*</b></span>
+                </div>
+                <div class="ui-g-8 ui-md-8 col-8">
+                  <p-autoComplete
+                    [(ngModel)]="text"
+                    [suggestions]="results"
+                    (completeMethod)="search($event)"
+                  ></p-autoComplete>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+              <div class="ui-g">
+                <div class="ui-g-4 ui-md-4 col-4">
+                  <span><b>Phòng|Buồng*</b></span>
+                </div>
+                <div class="ui-g-8 ui-md-8 col-8">
+                  <p-autoComplete
+                    [(ngModel)]="text"
+                    [suggestions]="results"
+                    (completeMethod)="search($event)"
+                  ></p-autoComplete>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="ui-g p-1">
+      <i class="pi pi-chevron-down"> </i>
+      <h6 class="text-success">
+        <b><i>Thông tin chi tiết bệnh nhân</i></b>
+      </h6>
+    </div>
+    <div class="col-lg-12 col-md-12 col-12">
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Tỉnh|Thành</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4 ">
+              <span><b>Quận|Huyện</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Xã|Phường</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Số nhà</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4 ">
+              <span><b>Điện thoại</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Số CMT|CCCD</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Quốc tịch</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4 ">
+              <span><b>Dân tộc</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Nghề nghiệp</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="ui-g p-1">
+      <i class="pi pi-chevron-down"> </i>
+      <h6 class="text-success">
+        <b><i>Thông tin người thân</i></b>
+      </h6>
+    </div>
+    <div class="col-lg-12 col-md-12 col-12">
+      <div class="row border">
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Tên người thân</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4 ">
+              <span><b>Điện thoại</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12 p-1">
+          <div class="ui-g">
+            <div class="ui-g-4 ui-md-4 col-4">
+              <span><b>Số CMT|CCCD</b></span>
+            </div>
+            <div class="ui-g-8 ui-md-8 col-8">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row border">
+    <div class="ui-g p-1">
+      <i class="pi pi-chevron-down"> </i>
+      <h6 class="text-success">
+        <b><i>Thông tin hệ thống</i></b>
+      </h6>
+    </div>
+    <div class="col-lg-12 col-md-12 col-12">
+      <div class="row border">
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="ui-g">
+            <div class="ui-g-3 ui-md-3 col-3">
+              <span>Người nhập</span>
+            </div>
+            <div class="ui-g-9 ui-md-9 col-9">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="ui-g">
+            <div class="ui-g-3 ui-md-3 col-3">
+              <span>Thời gian</span>
+            </div>
+            <div class="ui-g-9 ui-md-9 col-9">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="ui-g">
+            <div class="ui-g-3 ui-md-3 col-3">
+              <span>Người sửa</span>
+            </div>
+            <div class="ui-g-9 ui-md-9 col-9">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-12">
+          <div class="ui-g">
+            <div class="ui-g-3 ui-md-3 col-3">
+              <span>Thời gian sửa</span>
+            </div>
+            <div class="ui-g-9 ui-md-9 col-9">
+              <p-autoComplete
+                [(ngModel)]="text"
+                [suggestions]="results"
+                (completeMethod)="search($event)"
+              ></p-autoComplete>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border">
+          <div class="col-lg-12 col-md-12 col-12 p-1">
+            <div class="ui-g">
+              <div class="ui-g-2 ui-md-2 col-2">
+                <span><b>Số lần sửa</b></span>
+              </div>
+              <div class="ui-g-10 ui-md-10 col-10">
+                <p-autoComplete
+                  [(ngModel)]="text"
+                  [suggestions]="results"
+                  (completeMethod)="search($event)"
+                ></p-autoComplete>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
